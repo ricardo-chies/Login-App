@@ -9,7 +9,7 @@ import Api from "../../services/Api";
 import AjvLogo from '../../assets/ajvlogo.svg'
 
 export default () => {
-    //const {dispatch: userDispatch } = useContext(UserContext);
+    const {dispatch: userDispatch} = useContext(UserContext);
     const navigation = useNavigation();
 
     useEffect (() => {

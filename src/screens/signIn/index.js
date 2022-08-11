@@ -2,8 +2,6 @@ import React, {useState, useContext} from "react";
 import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-community/async-storage";
 
-import { UserContext } from '../../contexts/UserContext';
-
 import { 
     Container,
     InputArea,
@@ -15,7 +13,7 @@ import {
  } from './styles';
 
 import Api from "../../services/Api";
-
+import { UserContext } from '../../contexts/UserContext';
 import SignInput from '../../components/SignInput';
 
 import AjvLogo from '../../assets/ajvlogo.svg';
@@ -23,7 +21,7 @@ import EmailIcon from '../../assets/email.svg';
 import LockIcon from '../../assets/lock.svg';
 
 export default () => {
-    const {dispath: userDispath } = useContext(UserContext);
+    const {dispatch: userDispacth } = useContext(UserContext);
     const navigation = useNavigation();
 
     const [emailField, setEmailField] = useState('');
@@ -37,7 +35,7 @@ export default () => {
             if(json.token) {
                 await AsyncStorage.setItem('token', json.token);
 
-                userDispath({
+                userDispacth({
                     type: 'setAvatar',
                     payload:{
                         avatar: json.data.avatar

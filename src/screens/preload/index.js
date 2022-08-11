@@ -3,13 +3,13 @@ import { Container, LoadingIcon } from './styles';
 import AsyncStorage from "@react-native-community/async-storage";
 import { useNavigation } from "@react-navigation/native";
 
-import Api from "../../services/Api";
 import UserContext from "../../contexts/UserContext";
+import Api from "../../services/Api";
 
 import AjvLogo from '../../assets/ajvlogo.svg'
 
 export default () => {
-    const {dispath: userDispath } = useContext(UserContext);
+    //const {dispatch: userDispatch } = useContext(UserContext);
     const navigation = useNavigation();
 
     useEffect (() => {
@@ -20,7 +20,7 @@ export default () => {
                 if(res.token) {
                     await AsyncStorage.setItem('token', res.token);
 
-                    userDispath({
+                    userDispatch({
                         type: 'setAvatar',
                         payload:{
                             avatar: res.data.avatar

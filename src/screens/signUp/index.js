@@ -1,9 +1,7 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { useNavigation } from "@react-navigation/native";
 
 import AsyncStorage from "@react-native-community/async-storage";
-
-import { UserContext } from '../../contexts/UserContext';
 
 import { 
     Container,
@@ -16,7 +14,7 @@ import {
  } from './styles';
 
 import Api from "../../services/Api";
-
+import { UserContext } from '../../contexts/UserContext';
 import SignInput from '../../components/SignInput';
 
 import AjvLogo from '../../assets/ajvlogo.svg';
@@ -25,7 +23,7 @@ import EmailIcon from '../../assets/email.svg';
 import LockIcon from '../../assets/lock.svg';
 
 export default () => {
-    const {dispath: userDispath } = useContext(UserContext);
+    const {dispatch: userDispatch } = useContext(UserContext);
     const navigation = useNavigation();
 
     const [nameField, setNameField] = useState('');
@@ -39,7 +37,7 @@ export default () => {
             if(res.token) {
                 await AsyncStorage.setItem('token', res.token);
 
-                userDispath({
+                userDispatch({
                     type: 'setAvatar',
                     payload:{
                         avatar: res.data.avatar

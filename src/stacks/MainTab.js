@@ -5,7 +5,7 @@ import CustomTabBar from "../components/CustomTabBar";
 
 import Home from '../screens/home';
 import Search from '../screens/search';
-import Appointments from '../screens/appointments';
+import LocationMap from '../screens/locationMap';
 import Favorites from '../screens/favorites';
 import Profile from '../screens/profile';
 
@@ -15,7 +15,7 @@ export default () => (
     <Tab.Navigator tabBar={props=> <CustomTabBar {...props} />} >
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Search" component={Search} />
-        <Tab.Screen name="Appointments" component={Appointments} />
+        <Tab.Screen name="LocationMap" component={LocationMap} />
         <Tab.Screen name="Favorites" component={Favorites} />
         <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>

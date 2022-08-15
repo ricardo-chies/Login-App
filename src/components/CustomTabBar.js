@@ -39,7 +39,7 @@ const AvatarIcon = styled.Image`
 `;
 
 export default ({ state, navigation }) => {
-    const {state : user} = useContext(UserContext);
+    //const {state : user} = useContext(UserContext);
 
     const goTo = (screenName) => {
         navigation.navigate(screenName);
@@ -60,11 +60,13 @@ export default ({ state, navigation }) => {
                 <FavoriteIcon style={{opacity: state.index === 3 ? 1 : 0.5}} width="24" height="24" fill="#FFFFFF" />
             </TabItem>
             <TabItem onPress={() => goTo('Profile')}>
-                {user.avatar != '' ?
+                {/* {user.avatar != '' ?
                     <AvatarIcon source={{uri: user.avatar}} />
                     :
                     <AccountIcon style={{opacity: state.index === 4 ? 1 : 0.5}} width="24" height="24" fill="#FFFFFF" />
-                }
+                } */}
+                <AccountIcon style={{opacity: state.index === 4 ? 1 : 0.5}} width="24" height="24" fill="#FFFFFF" />
+
             </TabItem>
         </TabArea>
     );

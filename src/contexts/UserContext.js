@@ -10,5 +10,5 @@ export default ({children}) => {
         <UserContext.Provider value={{state, dispath}} >
             {children}
         </UserContext.Provider>
-    )
+    );
 }

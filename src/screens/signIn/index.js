@@ -21,13 +21,14 @@ import EmailIcon from '../../assets/email.svg';
 import LockIcon from '../../assets/lock.svg';
 
 export default () => {
-    const {dispatch: userDispacth } = useContext(UserContext);
+    //const {dispatch: userDispacth } = useContext(UserContext);
     const navigation = useNavigation();
 
     const [emailField, setEmailField] = useState('');
     const [passwordField, setPasswordField] = useState('');
 
     const handleSignClick = async () => {
+        navigation.navigate("MainTab")
         if(emailField != '' && passwordField != '') {
 
             let json = await Api.signIn(emailField, passwordField);
